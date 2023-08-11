@@ -83,6 +83,10 @@ setInterval(() => {
     obstaclesArr.forEach((obstacleInstance) => {
         obstacleInstance.moveDown();
 
+        if( obstacleInstance.positionY < (0 - obstacleInstance.height)){
+            obstacleInstance.domElement.remove();
+        }
+
         if (
             player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
             player.positionX + player.width > obstacleInstance.positionX &&
